@@ -9,7 +9,6 @@ public class StringRecognizer {
 
         StackReferenceBased aStack = new StackReferenceBased();
 
-        String test = "$";
         String aString = "abcd$abcd";
 
         int i = 0;
@@ -18,46 +17,28 @@ public class StringRecognizer {
             i++;
         }
 
-//        aStack.createStack()
-// push the characters before $, that is, the
-// characters in w, onto the stack
-//        i = 0
-//       ch = character at position i in aString
-//     while (ch is not '$') {
-//       aStack.push(ch)
-//             ++i
-//           ch = character at position i in aString
-// } // end while
+        i++;
 
+        Boolean inLanguage = true;
+        while (inLanguage && i<aString.length()){
+            //error here on line 26 probably something to do with the type casting 
+            Object stackTop = aStack.pop();
+            String top = (String)stackTop;
+            try {
+                if (top.equals(aString.charAt(i))) {
+                    i++;
+                } else {
+                    inLanguage = false;
+                }
+            }
+            catch(StackException e) {
+                inLanguage = false;
+            }
+        }
 
-// skip the $
-        // ++i
-// match the reverse of w
-        //  inLanguage = true // assume string is in language
-        //  while (inLanguage and i < length of aString) {
-        //      ch = character at position i in aString
-        //      try {
-        //          stackTop = aStack.pop()
-        //          if (stackTop equals ch) {
-        //              ++i // characters match
-        //          }
-//else {
-//    }// top of stack is not ch (characters do not match)
-//                inLanguage = false // reject string
-//            } // end if
-//        } // end try
-//catch (StackException e) {
+        if(inLanguage && aStack.isEmpty()){
+            System.out.println("aString is in the Language");
+        } else { System.out.println("aString is not in the Language"); }
 
-// aStack.pop() failed, aStack is empty (first half of
-// string is shorter than second half)
-//            inLanguage = false
-//        } // end catch
-//    } // end while
-//if (inLanguage and aStack.isEmpty()) {
-//       aString is in language
-//    }
-//else {
-//        aString is not in language
-//    } // end if
     }
 }
