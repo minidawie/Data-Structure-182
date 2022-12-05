@@ -1,0 +1,23 @@
+David Koh
+
+1a)     s1.displayStatistics(); //displays the stats for the area of the sphere
+	b1.displayStatistics(); //displays the stats for the area of the ball
+
+1b)     s1.displayStatistics(); //displays the stats for the area of the sphere
+	s1 = b1;		//changes s1 reference to b1
+	s1.displayStatistics(); //displays the stats for the area of the ball
+	b1.displayStatistics(); //displays the stats for the area of the ball
+
+1c)     b1.displayStatistics(); //displays the stats for the area of the ball
+	b1 = s1;		//illegal because s1 doesn't have enough data to create everything in b1
+	s1.displayStatistics(); //displays the stats for the area of the sphere
+	b1.displayStatistics(); //won't display anything because s1 doesn't have the data needed
+
+3a) setTime can invoke chime
+3b) getAlarmTime can invoke setSoundLevel
+
+4a) WallClock can invoke chime
+4b) myAlarm can invoke setSoundLevel
+
+7a) characterAt, isOperator can invoke isIdentifier
+7b) evaluate, characterAt, isOperator, isIdentifier can invoke isLegal
